@@ -76,25 +76,5 @@ class VideoProcessor:
             return video.get(cv.CAP_PROP_FPS)
     
         
-def main():
-        path = r"C:\Users\naama\Documents\studing\stress-level-analyzer\videos\WIN_20250905_18_04_10_Pro.mp4"
-        video_processor = VideoProcessor(path)
-        frames = video_processor.process()
-        
-        if frames == None:
-            return
 
-        print("length of video is: " , len(frames) , " frames") # length of video
-        print("number of frames per second: ", video_processor.framePerSec()) # rate
 
-        # show the frames one by one
-        if not len(frames) == 0:
-            i = 1
-            for frame in frames:
-                cv.imshow("frame "+str(i), frame)
-                cv.waitKey(0) 
-                cv.destroyAllWindows()
-                i += 1
-
-if __name__ == "__main__":
-    main()
