@@ -1,4 +1,7 @@
 # tests/test_VideoProcessor_samples.py
+import sys, os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 from pathlib import Path
 import pytest
 import numpy as np
