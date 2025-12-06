@@ -10,8 +10,8 @@ class StressLevelEstimator:
             str: "High", "Medium", or "Low" stress level.
         """
         if bpm > 100:
-            return "High"
+            return "high"
         elif bpm < 80:
-            return "Low"
+            return "low"
         else:
-            return "Medium"
+            return "medium"
