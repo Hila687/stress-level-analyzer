@@ -1,10 +1,19 @@
 import numpy as np
 import cv2 as cv
-
+import os
 
 class VideoProcessor:
     def __init__(self, path):
-        self.face_cascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml') 
+        cascade_path = os.path.join(
+            os.path.dirname(__file__),
+            "cascades",
+            "haarcascade_frontalface_default.xml"
+        )
+
+        if not os.path.exists(cascade_path):
+            raise FileNotFoundError("Cannot find haarcascade_frontalface_default.xml")
+
+        self.face_cascade = cv.CascadeClassifier(cascade_path)
         self.path = path
         self.frames = []
 
